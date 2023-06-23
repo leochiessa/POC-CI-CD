@@ -15,12 +15,8 @@ public class StudentController {
     @Autowired
     private StudentService ss;
 
-
-
     @GetMapping("/getAll")
     public String getAll() {
         return ss.getAll();
     }
-
-
 }
