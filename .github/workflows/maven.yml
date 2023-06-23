@@ -20,14 +20,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
         
-    - name: Shutdown Ubuntu MySQL (SUDO)
-      run: sudo service mysql stop
-      
-    - name: Set up MySQL
-      uses: mirromutth/mysql-action@v1.1
-      with:
-        mysql database: 'testbd'
-        mysql root password: ${{ secrets.RootPassword }}
+    - name: Run MySQL
+    - run: sudo mysql --user=root --password=root
       
     - name: Build with Maven
       run: mvn -B package --file pom.xml
